@@ -6,9 +6,15 @@ import mediapipe as mp
 import math
 import cv2
 
+parser = ArgumentParser(description="import images")
+parser.add_argument("-i", "--images",
+                    nargs = "?",
+                    required=True,
+                    help = "path to images dir")
+args = parser.parse_args()
 
 def handsFree(img) -> bool:
-    #img = cv2.imread(image_path)
+    img = cv2.imread(img)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     mp_pose_detect = mp.solutions.pose.Pose()
     pose = mp_pose_detect.process(img)
@@ -32,5 +38,6 @@ def handsFree(img) -> bool:
     return False
 
 
+print(handsFree(args.images))
 
 
