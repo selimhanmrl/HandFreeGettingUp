@@ -41,20 +41,6 @@ def extract_features_from_pose(points):
     norm_dist__left_waist__left_foot = dist__left_waist__left_foot / pose_connections_length
 
 
-    # Distance between left knee and left hand (For getting up)
-    dist__left_hip__left_hand = calculate_distance(points[mp_pose.PoseLandmark.LEFT_KNEE][0],
-                                                    points[mp_pose.PoseLandmark.LEFT_KNEE][1],
-                                                    points[mp_pose.PoseLandmark.LEFT_PINKY][0],
-                                                    points[mp_pose.PoseLandmark.LEFT_PINKY][1])
-    norm_dist__left_hip__left_hand = dist__left_hip__left_hand / pose_connections_length
-
-    # Distance between right knee and right hand  (For getting up)
-    dist__right_hip__right_hand = calculate_distance(points[mp_pose.PoseLandmark.RIGHT_KNEE][0],
-                                                     points[mp_pose.PoseLandmark.RIGHT_KNEE][1],
-                                                     points[mp_pose.PoseLandmark.RIGHT_PINKY][0],
-                                                     points[mp_pose.PoseLandmark.RIGHT_PINKY][1])
-    norm_dist__right_hip__right_hand = dist__right_hip__right_hand / pose_connections_length
-
     # Angle left shoulder for calculate arm direction
     angle__left_hand__left_shoulder = calculate_angle(points[mp_pose.PoseLandmark.LEFT_PINKY][0],
                                                    points[mp_pose.PoseLandmark.LEFT_PINKY][1],
@@ -108,9 +94,7 @@ def extract_features_from_pose(points):
 
     return {
         'norm_dist__right_waist__right_foot': norm_dist__right_waist__right_foot,
-        'norm_dist__left_waist__left_foot': norm_dist__left_waist__left_foot,
-        'norm_dist__left_hip__left_hand': norm_dist__left_hip__left_hand,
-        'norm_dist__right_hip__right_hand': norm_dist__right_hip__right_hand,
+        'norm_dist__left_waist__left_foot':norm_dist__left_waist__left_foot,
         'angle__left_thigh__left_calf': angle__left_thigh__left_calf,
         'angle__right_thigh__right_calf': angle__right_thigh__right_calf,
         'angle__left_upper__left_lower': angle__left_upper__left_lower,
