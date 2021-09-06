@@ -8,7 +8,6 @@ m = 0
 arr = []
 true = ['Human Is sitting', 'Left Arm with True Direction', 'Right Arm with True Direction', 'Body is straight', 'Left leg is straight', 'Right leg is straight']
 true.sort()
-print(true)
 count = 0
 lenght = 0
 while vid.isOpened():
