@@ -1,8 +1,20 @@
 from main import handsFree
 import cv2
 import time
+from argparse import ArgumentParser
+import sys
 
-vid = cv2.VideoCapture(0)
+
+parser = ArgumentParser(description="import videos")
+if len(sys.argv) > 1:
+    parser.add_argument("-v", "--video",
+                        nargs = "?",
+                        help = "path to video dir")
+    args = parser.parse_args()
+    vid = cv2.VideoCapture(args.video)
+
+else:
+    vid = cv2.VideoCapture(0)
 i = 0
 m = 0
 arr = []

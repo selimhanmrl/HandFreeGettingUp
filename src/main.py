@@ -9,13 +9,7 @@ import math
 import cv2
 
 
-parser = ArgumentParser(description="import images")
-if len(sys.argv) > 1:
-    parser.add_argument("-i", "--images",
-                        nargs = "?",
-                        required=True,
-                        help = "path to images dir")
-    args = parser.parse_args()
+
 
 def handsFree(img,array) -> bool:
     #img = cv2.imread(image_path)
